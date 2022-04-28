@@ -1,72 +1,65 @@
-import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home: Home(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
-      home: const MyHomePage(title: 'Sua frase'),
-    );
-  }
+  State<Home> createState() => _HomeState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _numeroAleatorio = 0;
-  List _frases = [
-    '',
-    'Tenha Brio',
-    'Não desista',
-    'Faça mesmo sem vontade',
-    'Tenha força de vontade'
-  ];
-  void _incrementCounter() {
-    setState(() {
-      _numeroAleatorio = new Random().nextInt(5);
-    });
-  }
-
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          'Frases do dia',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.amber,
       ),
-      body: Center(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          border: Border.all(width: 3, color: Colors.amber),
+        ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Frase do dia:',
-            ),
+          children: [
+            Image.asset('imagens/logo.png'),
             Text(
-              _frases[_numeroAleatorio],
-              style: Theme.of(context).textTheme.headline4,
+              'Clique abaixo para gerar uma frase!',
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                  fontSize: 17,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.black),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            RaisedButton(
+              child: Text(
+                'Nova Frase',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
+              color: Colors.amber,
+              onPressed: () {},
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

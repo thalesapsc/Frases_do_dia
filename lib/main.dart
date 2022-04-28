@@ -18,10 +18,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var _fraseAleatoria = [
-    'Nunca desista, tenha sempre pensamentos positivos',
-    'Faça mesmo sem vontade, o que vem depois disso satisfatório de mais',
-    'Não deixe nada para depois',
-    'A motivação está dentro de si'
+    'As pessoas costumam dizer que a motivação não dura sempre. Bem, nem o efeito do banho, por isso recomenda-se diariamente.',
+    'Faça mesmo sem vontade, o que vem depois disso é satisfatório de mais',
+    'Eu faço da dificuldade a minha motivação. A volta por cima vem na continuação.',
+    'A motivação está dentro de si',
   ];
 
   var fraseGerada = 'Clique abaixo para gerar uma frase';
